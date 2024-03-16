@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources/Sims2DoubleDeluxe.ico" />
+        <EmbeddedResource Include="Resources/cover.png" />
+        <EmbeddedResource Include="Resources/play.png" />
+        <EmbeddedResource Include="Resources/play-window.png" />
+        <EmbeddedResource Include="Resources/game-settings.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Dialogues\ChooseDirectories.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Dialogues\GameSettings.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+    
+</Project>
