@@ -41,29 +41,30 @@ partial class GameSettings
         this.FormBorderStyle = FormBorderStyle.FixedDialog;
         this.BackColor = Color.FromArgb(255, 119, 128, 193);
         this.ForeColor = Color.FromArgb(255, 0, 14, 69);
-        this.Font = new Font("Benguiat Gothic", 9.25f, FontStyle.Bold);
+        this.Font = Program.ProgramFont;
         
         this.Load += OnLoad;
         
-        this.Controls.Add(TitlePanel);
         this.Controls.Add(DisableSoundLabel);
         this.Controls.Add(DisableSoundCheckBox);
-        
+        this.Controls.Add(CustomResoulitonLabel);
+        this.Controls.Add(CustomResoulitonCheckBox);
+        CustomResoulitonCheckBox.Click += CustomResolutionCheckBoxOnClick;
+        this.Controls.Add(ResolutionWidthBox);
+        this.Controls.Add(ResXLabel);
+        this.Controls.Add(ResolutionHeightBox);
+        this.Controls.Add(ResYLabel);
+        this.Controls.Add(AutoResoulitonButton);
+        AutoResoulitonButton.Click += AutoResolutionButtonOnClick;
+        this.Controls.Add(ApplyButton);
+        ApplyButton.Click += ApplyButtonOnClick;
     }
-
-    private Panel TitlePanel = new Panel()
-    {
-        Name = "TitlePanel",
-        Anchor = AnchorStyles.Left,
-        Location = new Point(5,5),
-        Size = new Size(121,18)
-    };
 
     private CheckBox DisableSoundCheckBox = new CheckBox()
     {
         Name = "DisableSoundCheckBox",
         Anchor = AnchorStyles.Left,
-        Location = new Point(5, 28),
+        Location = new Point(5, 5),
         Text = ""
     };
 
@@ -71,9 +72,93 @@ partial class GameSettings
     {
         Name = "DisableSoundLabel",
         Anchor = AnchorStyles.Left,
-        Location = new Point(20, 32),
+        Location = new Point(20, 9),
         Size = new Size(300, 30),
         Text = "Disable All Sounds"
+    };
+    
+    private CheckBox CustomResoulitonCheckBox = new CheckBox()
+    {
+        Name = "CustomResoulitonCheckBox",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(5, 35),
+        Text = ""
+    };
+    
+    private Label CustomResoulitonLabel = new Label()
+    {
+        Name = "CustomResoulitonLabel",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(20, 39),
+        Size = new Size(300, 30),
+        Text = "Custom Resolution:"
+    };
+    
+    private NumericUpDown ResolutionWidthBox = new NumericUpDown()
+    {
+        Name = "ResolutionWidthBox",
+        Enabled = false,
+        Anchor = AnchorStyles.Left,
+        Location = new Point(50, 70),
+        Size = new Size(60, 30),
+        Maximum = 2147483645,
+        Minimum = 1,
+        Value = 640
+    };
+    
+    private NumericUpDown ResolutionHeightBox = new NumericUpDown()
+    {
+        Name = "ResolutionHeightBox",
+        Enabled = false,
+        Anchor = AnchorStyles.Left,
+        Location = new Point(165, 70),
+        Size = new Size(60, 30),
+        Maximum = 2147483645,
+        Minimum = 1,
+        Value = 480
+    };
+    
+    private Label ResXLabel = new Label()
+    {
+        Name = "ResXLabel",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(5, 74),
+        Size = new Size(50, 30),
+        Text = "Width:"
+    };
+    
+    private Label ResYLabel = new Label()
+    {
+        Name = "ResYLabel",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(115, 74),
+        Size = new Size(60, 30),
+        Text = "Height:"
+    };
+    
+    private Button AutoResoulitonButton = new Button()
+    {
+        Name = "AutoResoulitonButton",
+        Enabled = false,
+        Anchor = AnchorStyles.Left,
+        Location = new Point(230, 70),
+        Size = new Size(85, 25),
+        BackColor = Color.FromArgb(255, 115, 156, 176),
+        FlatStyle = FlatStyle.Flat,
+        FlatAppearance = { BorderSize = 0 },
+        Text = "Auto"
+    };
+    
+    private Button ApplyButton = new Button()
+    {
+        Name = "ApplyButton",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(230, 270),
+        Size = new Size(85, 25),
+        BackColor = Color.FromArgb(255, 115, 156, 176),
+        FlatStyle = FlatStyle.Flat,
+        FlatAppearance = { BorderSize = 0 },
+        Text = "Apply"
     };
     
     #endregion

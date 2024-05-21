@@ -6,4 +6,9 @@ public partial class ChooseDirectories : Form
     {
         InitializeComponent();
     }
+
+    private void ApplyButtonOnClick(object? sender, EventArgs e)
+    {
+        this.Close();
+    }
 }

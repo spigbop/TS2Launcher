@@ -35,15 +35,19 @@ sealed partial class Launcher
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(640, 320);
-        Stream? icon = Assembly.GetExecutingAssembly().GetManifestResourceStream("TS2Launcher.Resources.Sims2DoubleDeluxe.ico");
+        Stream icon = Assembly.GetExecutingAssembly().GetManifestResourceStream("TS2Launcher.Resources.Sims2DoubleDeluxe.ico");
         if (icon != null) this.Icon = new Icon(icon);
-        this.Text = "The Sims 2\u2122 Launcher";
+        this.Text = "The Sims 2 Launcher (Unofficial)";
         this.Size = new Size(640, 320);
         this.MaximizeBox = false;
         this.MinimizeBox = false;
         this.StartPosition = FormStartPosition.CenterScreen;
         this.FormBorderStyle = FormBorderStyle.FixedSingle;
         this.BackColor = Color.FromArgb(255, 119, 128, 193);
+        this.ForeColor = Color.FromArgb(255, 0, 14, 69);
+        this.Font = Program.ProgramFont;
+        
+        
         this.Load += OnLoad;
         
         this.Controls.Add(ScreenshotsPanel);
@@ -55,6 +59,9 @@ sealed partial class Launcher
         
         this.Controls.Add(GameSettingsButton);
         GameSettingsButton.Click += GameSettingsButtonOnClick;
+        
+        this.Controls.Add(LauncherSettingsButton);
+        LauncherSettingsButton.Click += LauncherSettingsButtonOnClick;
     }
 
     private Button PlayButton = new Button()
@@ -64,9 +71,10 @@ sealed partial class Launcher
         Location = new Point(480,5),
         Size = new Size(140,50),
         FlatStyle = FlatStyle.Flat,
-        FlatAppearance = { BorderSize = 3, BorderColor = Color.FromArgb(255,114,123,154) },
+        FlatAppearance = { BorderSize = 0 },
         BackColor = Color.FromArgb(255, 115, 156, 176),
-        Text = "",
+        Font = new Font(Program.ProgramFont.FontFamily, 22.2f, FontStyle.Bold),
+        Text = "Play",
     };
     
     private Button PlayWindowButton = new Button()
@@ -74,11 +82,12 @@ sealed partial class Launcher
         Name = "PlayWindowButton",
         Anchor = AnchorStyles.Right,
         Location = new Point(480,55),
-        Size = new Size(140,25),
+        Size = new Size(140,30),
         FlatStyle = FlatStyle.Flat,
-        FlatAppearance = { BorderSize = 3, BorderColor = Color.FromArgb(255,114,123,154) },
+        FlatAppearance = { BorderSize = 0 },
         BackColor = Color.FromArgb(255, 115, 156, 176),
-        Text = ""
+        Font = new Font(Program.ProgramFont.FontFamily, 10f, FontStyle.Bold),
+        Text = "Play Windowed"
     };
     
     private Button GameSettingsButton = new Button()
@@ -86,11 +95,25 @@ sealed partial class Launcher
         Name = "GameSettingsButton",
         Anchor = AnchorStyles.Right,
         Location = new Point(480,105),
-        Size = new Size(140,25),
+        Size = new Size(140,30),
         FlatStyle = FlatStyle.Flat,
-        FlatAppearance = { BorderSize = 3, BorderColor = Color.FromArgb(255,114,123,154) },
+        FlatAppearance = { BorderSize = 0 },
         BackColor = Color.FromArgb(255, 115, 156, 176),
-        Text = ""
+        Font = new Font(Program.ProgramFont.FontFamily, 10f, FontStyle.Bold),
+        Text = "Game Settings"
+    };
+    
+    private Button LauncherSettingsButton = new Button()
+    {
+        Name = "LauncherSettingsButton",
+        Anchor = AnchorStyles.Right,
+        Location = new Point(480,135),
+        Size = new Size(140,30),
+        FlatStyle = FlatStyle.Flat,
+        FlatAppearance = { BorderSize = 0 },
+        BackColor = Color.FromArgb(255, 115, 156, 176),
+        Font = new Font(Program.ProgramFont.FontFamily, 10f, FontStyle.Bold),
+        Text = "Launcher Settings"
     };
 
     private Panel ScreenshotsPanel = new Panel()

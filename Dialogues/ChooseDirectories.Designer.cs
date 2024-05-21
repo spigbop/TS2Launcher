@@ -34,9 +34,30 @@ partial class ChooseDirectories
         this.components = new System.ComponentModel.Container();
         this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         this.ClientSize = new System.Drawing.Size(320, 320);
-        this.Text = "Directories";
-        this.Size = new Size(320, 320);
+        this.Text = "Choose Directories...";
+        this.MaximizeBox = false;
+        this.MinimizeBox = false;
+        this.StartPosition = FormStartPosition.CenterParent;
+        this.FormBorderStyle = FormBorderStyle.FixedDialog;
+        this.BackColor = Color.FromArgb(255, 119, 128, 193);
+        this.ForeColor = Color.FromArgb(255, 0, 14, 69);
+        this.Font = Program.ProgramFont;
+        
+        this.Controls.Add(ApplyButton);
+        ApplyButton.Click += ApplyButtonOnClick;
     }
 
+    private Button ApplyButton = new Button()
+    {
+        Name = "ApplyButton",
+        Anchor = AnchorStyles.Left,
+        Location = new Point(230, 270),
+        Size = new Size(85, 25),
+        BackColor = Color.FromArgb(255, 115, 156, 176),
+        FlatStyle = FlatStyle.Flat,
+        FlatAppearance = { BorderSize = 0 },
+        Text = "Apply"
+    };
+    
     #endregion
 }

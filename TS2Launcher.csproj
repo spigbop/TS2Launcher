@@ -9,11 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <EmbeddedResource Include="Resources/ts2font.ttf" />
         <EmbeddedResource Include="Resources/Sims2DoubleDeluxe.ico" />
         <EmbeddedResource Include="Resources/cover.png" />
-        <EmbeddedResource Include="Resources/play.png" />
-        <EmbeddedResource Include="Resources/play-window.png" />
-        <EmbeddedResource Include="Resources/game-settings.png" />
     </ItemGroup>
 
     <ItemGroup>
